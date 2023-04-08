@@ -78,7 +78,6 @@ app.get('/printstatement/:accountId', async (req, res) => {
             statement += `${transaction.type} of ${transaction.amount} `;
             if(transaction.type === 'Tranfer'){
                 statement += `to ${transaction.toName} (${transaction.toEmail}, ${transaction.toPanNo}) `;
-
             }
             statement += `\n`;
         });
@@ -104,6 +103,8 @@ app.delete('/closeaccount/:accountId', async(req, res) => {
     }
 })
 
+
+//Starting the server
 app.listen(process.env.PORT, async() => {
     try{
         await connection
