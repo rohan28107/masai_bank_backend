@@ -10,8 +10,9 @@ const accountSchema = new mongoose.Schema({
         required: true,
     },
     dob: {
-        type: Date,
-        default: Date.now,
+        type: String,
+        // type: Date,
+        // default: Date.now,
         required: true,
     },
     email: {
@@ -34,10 +35,10 @@ const accountSchema = new mongoose.Schema({
         unique: true,
     },
     balance: {
-        type: Number,
-        default: function (){
-            return this.initialBalance;
-        }
+        type: String,
+        // default: function (){
+        //     return this.initialBalance;
+        // }
     },
     ledger: {
         type: [
@@ -45,11 +46,9 @@ const accountSchema = new mongoose.Schema({
                 type: {
                     type: String,
                     enum: ['Deposit', 'Withdrawal', 'Transfer'],
-                    required: true
                 },
                 amount: {
                     type: Number,
-                    required: true
                 },
                 toName: {
                     type: String,
