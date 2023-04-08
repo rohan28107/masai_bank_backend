@@ -10,7 +10,8 @@ const accountSchema = new mongoose.Schema({
         required: true,
     },
     dob: {
-        type: [Date],
+        type: Date,
+        default: Date.now,
         required: true,
     },
     email: {
